@@ -12,7 +12,7 @@ sbt run
 [Pure Functional Database Programming with Fixpoint Types—Rob Norris](https://www.youtube.com/watch?v=7xSfLPD6tiQ)
 
 [Topiary and the art of origami](https://skillsmatter.com/skillscasts/10959-topiary-and-the-art-of-origami) plus
-[slides](http://slides.com/zainabali_/topiary_and_the_art_of_origami#/0/16).
+[slides](http://slides.com/zainabali_/topiary_and_the_art_of_origami#/0/16) plus [code](https://github.com/zainab-ali/titanic).
 
 [Matryoshka library](https://github.com/slamdata/matryoshka)
 

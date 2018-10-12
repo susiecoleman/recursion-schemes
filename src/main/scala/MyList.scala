@@ -2,6 +2,11 @@ import scalaz.Functor
 import matryoshka._
 import matryoshka.implicits._
 
+//A recursive type
+//sealed trait MyList[A]
+//case class Cons[A](head: A, tail: MyList[A]) extends MyList[A]
+//case class Nil[A]() extends MyList[A]
+
 //Data type - non recursive - no self reference.
 //These are the plain data. I.e. there is nothing to stop us using ConsF as a pair so ConsF[Int].
 sealed trait MyListF[F]
@@ -9,7 +14,8 @@ case class ConsF[F](head: Int, tail: F) extends MyListF[F]
 case class NilF[F]() extends MyListF[F]
 
 //This means that if we wanted to define a recursive type MyList we would do
-//type Mylist = MyListF[MyListF[MyList[...
+//type Mylist = MyListF[MyListF[MyListF[...
+//type MyList = MyListF[MyList]
 //The type is infinite
 
 //Adding the recursion these are recursive classes. Self referential.
@@ -18,7 +24,7 @@ case class NilF[F]() extends MyListF[F]
 //case class Nil(value: NilF[Nil])
 
 //These can be made more general
-
+//Higher kinded types
 //case class GenCons[F[_], A](head: A, tail: F[GenCons[F, A]])
 //case class GenNil[F[_]](value: F[GenNil[F]])
 
@@ -75,7 +81,7 @@ object Main {
       }
   }
 
-  val myList: MyListType = List(12,13).ana(build)
+  val myList: MyListType = List(12,13).ana[MyListType](build)
 
 
 
