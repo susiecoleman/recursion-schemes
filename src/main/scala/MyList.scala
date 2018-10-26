@@ -1,7 +1,7 @@
 import scalaz.Functor
 import matryoshka._
 import matryoshka.implicits._
-
+import matryoshka.data.Fix
 //A recursive type
 //sealed trait MyList[A]
 //case class Cons[A](head: A, tail: MyList[A]) extends MyList[A]
@@ -30,11 +30,11 @@ case class NilF[F]() extends MyListF[F]
 
 //case class GenNil[F[_]](value: F[GenNil[F]])
 //is actually Fix
-case class Fix[F[_]](unfix: F[Fix[F]])
+//case class Fix[F[_]](unfix: F[Fix[F]])
 //This is how to represent an infinite type in a finite way
 //case class GenCons[F[_], A](head: A, tail: F[GenCons[F, A]])
 //is actually cofree
-case class Cofree[F[_], A](head: A, tail: F[Cofree[F, A]])
+//case class Cofree[F[_], A](head: A, tail: F[Cofree[F, A]])
 //Its the same as fix but it allows you associate a label with each value
 //Finally there is also Free which is a free monad when it's an A or an F
 //case class Free[F[_], A](resume: A \/ F[Free[F,A]])
