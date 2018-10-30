@@ -1,6 +1,6 @@
 # Recursion Schemes
 
-Experimenting with recursion schemes. (Currently doesn't compile)
+Experimenting with recursion schemes.
 
 ## Running
 
